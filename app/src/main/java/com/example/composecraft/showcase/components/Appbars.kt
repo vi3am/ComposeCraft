@@ -1,9 +1,11 @@
 package com.example.composecraft.showcase.components
 
 import android.R.attr.navigationIcon
+import android.graphics.drawable.Icon
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -51,10 +53,12 @@ fun preview(){
                 )
             }
             IconButton(onClick = { /*TODO*/ }) {
-                Icon(
-                    imageVector = Icons.Filled.Menu,
-                    contentDescription = "Menu"
-                )
+               Badges(
+                   content = {
+                       Icon(Icons.Filled.Notifications, contentDescription = null)
+                   },
+                   badgeCount = 99
+               )
             }
         }
     )
