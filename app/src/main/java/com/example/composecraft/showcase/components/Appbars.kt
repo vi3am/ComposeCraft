@@ -1,5 +1,7 @@
 package com.example.composecraft.showcase.components
 
+import android.R.attr.navigationIcon
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.CenterAlignedTopAppBar
@@ -8,18 +10,52 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.tooling.preview.Preview
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AppBars() {
+fun AppBars(
+    titile: String,
+    navigationIcon: @Composable () -> Unit = {},
+    actionsIcon: @Composable RowScope.() -> Unit = {}
+
+) {
     CenterAlignedTopAppBar(
-        title = { Text("AppBar Example") },
+        title = { Text(
+            text = titile
+        ) },
+        navigationIcon = navigationIcon,
+        actions = actionsIcon
+    )
+}
+
+@Preview (showBackground = true)
+@Composable
+fun preview(){
+    AppBars(
+        titile = "AppBarr",
         navigationIcon = {
-            IconButton(
-                onClick = {}
-            ) {
-            Icon(imageVector = Icons.Default.Menu, contentDescription = "Menu")
+            IconButton(onClick = { /*TODO*/ }) {
+                Icon(
+                    imageVector = Icons.Filled.Menu,
+                    contentDescription = "Menu"
+                )
             }
         },
+        actionsIcon = {
+            IconButton(onClick = { /*TODO*/ }) {
+                Icon(
+                    imageVector = Icons.Filled.Menu,
+                    contentDescription = "Menu"
+                )
+            }
+            IconButton(onClick = { /*TODO*/ }) {
+                Icon(
+                    imageVector = Icons.Filled.Menu,
+                    contentDescription = "Menu"
+                )
+            }
+        }
     )
 }
