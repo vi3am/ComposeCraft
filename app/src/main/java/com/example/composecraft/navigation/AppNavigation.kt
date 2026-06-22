@@ -4,7 +4,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -13,8 +12,8 @@ import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
 import com.example.composecraft.appViewModel.AppViewModel
-import com.example.composecraft.screen.AboutScreen
-import com.example.composecraft.screen.HomeScreen
+import com.example.composecraft.screens.AboutScreen
+import com.example.composecraft.screens.HomeScreen
 
 @Composable
 fun AppNav(viewModel: AppViewModel) {

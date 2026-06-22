@@ -16,4 +16,12 @@ val listAppRoute = listOf(
     AppModel("About", AppRoute.About),
     AppModel("About", AppRoute.About),
     AppModel("About", AppRoute.About),
+    AppModel("About", AppRoute.About),
+    AppModel("About", AppRoute.About),
+    AppModel("About", AppRoute.About),
+    AppModel("About", AppRoute.About),
+    AppModel("About", AppRoute.About),
+    AppModel("About", AppRoute.About),
+    AppModel("About", AppRoute.About),
+    AppModel("About", AppRoute.About),
 )

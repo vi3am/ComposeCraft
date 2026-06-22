@@ -1,4 +1,4 @@
-package com.example.composecraft.showcase.components
+package com.example.composecraft.showcase.components.Carousel
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth

@@ -1,6 +1,5 @@
-package com.example.composecraft.screen
+package com.example.composecraft.screens
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -12,6 +11,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowLeft
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -44,12 +49,11 @@ fun HomeScreen(
                 .fillMaxSize()
                 .padding(padding),
         ) {
-
             Box {
                 LazyColumn(
                     modifier = Modifier
                         .fillMaxSize()
-                        .padding(16.dp),
+                        .padding(horizontal = 16.dp),
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
@@ -77,18 +81,30 @@ fun Applist(modifier: Modifier = Modifier, item: AppModel, onClick: () -> Unit) 
                 onClick()
             }
             .clip(shape = RoundedCornerShape(8.dp))
-            .background(Color(0xFF144B5C).copy(0.1f))
+//            .background(Color(0xFF144B5C).copy(0.1f))
             .then(modifier),
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceBetween
     ) {
-        Text(
-            modifier = Modifier.padding(16.dp),
-            text = item.title,
-            fontWeight = FontWeight.Normal,
-            fontSize = 18.sp,
-            color = Color.Black
-        )
+      Column() {
+          Text(
+              text = item.title,
+              fontWeight = FontWeight.Normal,
+              fontSize = 18.sp,
+              color = Color.Black
+          )
+          Text(
+              text = item.title,
+              fontWeight = FontWeight.Normal,
+              style = MaterialTheme.typography.bodyMedium,
+              color = Color.Gray
+          )
+      }
+        IconButton(onClick = onClick) {
+            Icon(imageVector = Icons.Default.ArrowLeft, contentDescription = "Back")
+        }
     }
+    HorizontalDivider()
 }
 
 
