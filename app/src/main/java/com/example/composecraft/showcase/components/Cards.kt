@@ -1,6 +1,7 @@
 package com.example.composecraft.showcase.components
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -29,7 +30,7 @@ fun CardsEx(){
         shape = RoundedCornerShape(16.dp),
         // elevation: Adds a shadow to the component that makes it appear elevated above the background.
         elevation =  CardDefaults.cardElevation(
-            1.dp
+            1.dp,
         )
     ) {
         Text("Card Box")
@@ -99,7 +100,10 @@ fun OutlinedCardExample() {
 @Preview
 @Composable
 fun previewCard(){
-//    CardsEx()
-//    ElevatedCardExample()
-//    FilledCardExample()
+    Column() {
+        CardsEx()
+        OutlinedCardExample()
+        ElevatedCardExample()
+        FilledCardExample()
+    }
 }
