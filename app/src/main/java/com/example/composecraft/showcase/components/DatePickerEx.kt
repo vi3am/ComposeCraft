@@ -34,7 +34,10 @@ fun DatePickerScreen() {
 
     var showDatePicker by remember { mutableStateOf(true) }
     Scaffold(
-        topBar = {AppBars(title = "DatePicker") },
+        topBar = {AppBars(
+            title = "DatePicker",
+            onClick = {},
+        ) },
         bottomBar = {
             Button(
                 modifier = Modifier.fillMaxWidth(),

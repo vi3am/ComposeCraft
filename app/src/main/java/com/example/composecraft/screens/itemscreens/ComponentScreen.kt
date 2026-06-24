@@ -1,4 +1,4 @@
-package com.example.composecraft.screens
+package com.example.composecraft.screens.itemscreens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

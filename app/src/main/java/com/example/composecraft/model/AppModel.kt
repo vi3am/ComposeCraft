@@ -25,3 +25,9 @@ val listAppRoute = listOf(
     AppModel("About", AppRoute.About),
     AppModel("About", AppRoute.About),
 )
+
+val listAppNavBar= listOf(
+    AppModel("Home", AppRoute.Home),
+    AppModel("Notification", AppRoute.Notification),
+    AppModel("Setting", AppRoute.Setting),
+)

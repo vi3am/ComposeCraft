@@ -12,8 +12,10 @@ import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
 import com.example.composecraft.appViewModel.AppViewModel
-import com.example.composecraft.screens.AboutScreen
+import com.example.composecraft.screens.itemscreens.AboutScreen
 import com.example.composecraft.screens.HomeScreen
+import com.example.composecraft.screens.NotificationScreen
+import com.example.composecraft.screens.SettingScreen
 
 @Composable
 fun AppNav(viewModel: AppViewModel) {
@@ -42,6 +44,20 @@ fun AppNav(viewModel: AppViewModel) {
                         AboutScreen(
                             onBack = {
                                 backStack.removeLastOrNull()
+                            }
+                        )
+                    }
+                    entry<AppRoute.Notification> {
+                        NotificationScreen(
+                            onNavigate = { route ->
+                                backStack.add(route)
+                            }
+                        )
+                    }
+                    entry<AppRoute.Setting> {
+                        SettingScreen(
+                            onNavigate = {route ->
+                                backStack.add(route)
                             }
                         )
                     }
