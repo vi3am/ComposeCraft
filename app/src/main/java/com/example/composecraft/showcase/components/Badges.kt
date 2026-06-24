@@ -7,15 +7,18 @@ import androidx.compose.runtime.Composable
 
 @Composable
 fun Badges(
+    badgeCount: Int? = null,
+    hasBadge: Boolean = false,
     content: @Composable () -> Unit,
-    badgeCount: Int
 ) {
     BadgedBox(
         badge = {
-            Badge {
-                Text(
-                    text = badgeCount.toString()
-                )
+            when {
+                badgeCount != null ->
+                    Badge {
+                        Text(badgeCount.toString())
+                    }
+                hasBadge -> Badge()
             }
 
         }

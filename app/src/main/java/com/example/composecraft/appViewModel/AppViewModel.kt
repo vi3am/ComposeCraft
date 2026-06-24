@@ -25,7 +25,7 @@ class AppViewModel : ViewModel() {
         viewModelScope.launch {
             _isLoading.value = true
             // fetch data
-            delay(5000L)
+            delay(500L)
             _isLoading.value = false
         }
     }

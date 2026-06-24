@@ -1,6 +1,8 @@
 package com.example.composecraft.showcase.components
 
-import androidx.compose.foundation.layout.RowScope
+import android.R.attr.onClick
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Notifications
@@ -16,25 +18,33 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.composecraft.showcase.components.dialogs.AlertDialogEx
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AppBars(
     title: String,
+    onClick:() -> Unit,
+    onTitleClick: (() -> Unit)? = null
 ) {
     var badgeCount by remember { mutableStateOf(0) }
 
     CenterAlignedTopAppBar(
         title = {
             Text(
-                text = title
+                text = title,
+                modifier = Modifier.clickable {
+                    onTitleClick?.invoke()
+                }
             )
+
         },
         navigationIcon = {
-            IconButton(onClick = { /*TODO*/ }) {
+            IconButton(onClick = onClick) {
                 Icon(
                     imageVector = Icons.Filled.Menu,
                     contentDescription = "Menu"
@@ -76,6 +86,7 @@ fun AppBars(
 fun AppBarsPreview() {
 
     AppBars(
-        title = "AppBar",
+        title = "",
+        onClick ={}
     )
 }

@@ -13,13 +13,21 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowLeft
+import androidx.compose.material.icons.filled.Notifications
+import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -32,42 +40,74 @@ import com.example.composecraft.model.AppModel
 import com.example.composecraft.model.listAppRoute
 import com.example.composecraft.navigation.AppRoute
 import com.example.composecraft.showcase.components.AppBars
+import com.example.composecraft.showcase.components.bottomnavigationbar.BottomNavigationBarEx
+import com.example.composecraft.showcase.components.dialogs.AlertDialogEx
+import com.example.composecraft.showcase.components.navigationdrawer.DrawerNav
+import kotlinx.coroutines.launch
 
 @Composable
 fun HomeScreen(
     onNavigate: (route: AppRoute) -> Unit,
 ) {
-    Scaffold(
-        topBar = {
-            AppBars(
-                title = "Compose-Craft",
-            )
-        }
-    ) { padding ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(padding),
-        ) {
-            Box {
-                LazyColumn(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(horizontal = 16.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    items(listAppRoute) { item ->
-                        Applist(
-                            item = item,
-                            onClick = {
-                                onNavigate(item.route)
-                            })
+    var openAlertDialog by remember { mutableStateOf(false) }
+    val drawerState = rememberDrawerState(DrawerValue.Closed)
+    val scope = rememberCoroutineScope()
+    DrawerNav(drawerState = drawerState) {
+        Scaffold(
+            topBar = {
+                AppBars(
+                    title = "Compose-Craft",
+                    onTitleClick = { openAlertDialog = !openAlertDialog },
+                    onClick ={
+                        scope.launch {
+                            drawerState.apply {
+                                if (isClosed) open() else close()
+                            }
+                        }
+                    }
+                )
+            },
+            bottomBar = { BottomNavigationBarEx(onNavigate = onNavigate) }
+
+        ) { padding ->
+            if (openAlertDialog) {
+                AlertDialogEx(
+                    onDismissRequest = {
+                        openAlertDialog = false
+                    },
+                    onConfirm = {
+                        openAlertDialog = false
+                    },
+                    dialogTitle = "Notification",
+                    dialogText = "Hello Compose!",
+                    icon = Icons.Default.Notifications
+                )
+            }
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(padding),
+            ) {
+                Box {
+                    LazyColumn(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(horizontal = 16.dp),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        items(listAppRoute) { item ->
+                            Applist(
+                                item = item,
+                                onClick = {
+                                    onNavigate(item.route)
+                                })
+                        }
                     }
                 }
             }
-        }
 
+        }
     }
 }
 
