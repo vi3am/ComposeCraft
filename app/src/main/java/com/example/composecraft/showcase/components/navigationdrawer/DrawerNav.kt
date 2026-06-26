@@ -1,5 +1,6 @@
 package com.example.composecraft.showcase.components.navigationdrawer
 
+import android.R.attr.thickness
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
@@ -101,12 +102,12 @@ fun DrawerNavContent() {
         }
 
         HorizontalDivider(
-            modifier = Modifier.padding(horizontal = 8.dp, vertical = 8.dp),
-            thickness = 0.5.dp,
+            modifier = Modifier.padding(horizontal = 8.dp),
+            thickness = 1.dp,
             color = MaterialTheme.colorScheme.outlineVariant
         )
 
-        Spacer(modifier = Modifier.height(8.dp))
+        Spacer(modifier = Modifier.height(16.dp))
 
         // Navigation Items
         LazyColumn(
