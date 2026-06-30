@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.example.composecraft.navigation.AppRoute
-import com.example.composecraft.showcase.components.bottomnavigationbar.BottomNavigationBarEx
+import com.example.composecraft.feature.components.bottomnavigationbar.BottomNavigationBarEx
 
 @Composable
 fun NotificationScreen(
@@ -18,7 +18,9 @@ fun NotificationScreen(
 ) {
     Scaffold(
         bottomBar = {
-            BottomNavigationBarEx(onNavigate)
+            BottomNavigationBarEx(
+                onNavigate
+            )
         }
     ) { paddingValues ->
         Column(

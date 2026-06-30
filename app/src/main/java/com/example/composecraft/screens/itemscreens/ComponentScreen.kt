@@ -21,8 +21,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.composecraft.showcase.components.BottomSheet
-import com.example.composecraft.showcase.components.Chip.FilterChipComp
+import com.example.composecraft.feature.components.BottomSheet
+import com.example.composecraft.feature.components.Chip.FilterChipComp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -57,7 +57,7 @@ fun AboutScreen(
             BottomSheet(
                 showBottomSheet = showBottomSheet,
                 sheetState = sheetState,
-                onDismiss = {showBottomSheet = false}
+                onDismiss = { showBottomSheet = false }
             )
         }
     }

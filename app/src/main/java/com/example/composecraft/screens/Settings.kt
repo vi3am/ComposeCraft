@@ -10,16 +10,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.example.composecraft.navigation.AppRoute
-import com.example.composecraft.showcase.components.bottomnavigationbar.BottomNavigationBarEx
+import com.example.composecraft.feature.components.bottomnavigationbar.BottomNavigationBarEx
 
 @Composable
 fun SettingScreen(
     onNavigate: (route: AppRoute) -> Unit,
 ) {
     Scaffold(
-        bottomBar = {BottomNavigationBarEx(
-            onNavigate = onNavigate
-        )}
+        bottomBar = {
+            BottomNavigationBarEx(
+                onNavigate = onNavigate
+            )
+        }
     ) { paddingValues ->
         Column(
             modifier = Modifier.fillMaxSize().padding(paddingValues),
