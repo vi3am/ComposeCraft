@@ -26,6 +26,13 @@ val listAppRoute = listOf(
         Icons.AutoMirrored.Filled.ArrowForward,
         AppRoute.About
     ),
+    AppModel(
+        Icons.Default.Category,
+        "Notification",
+        "View details and examples",
+        Icons.AutoMirrored.Filled.ArrowForward,
+        AppRoute.NotificationPermissionScreen
+    ),
 )
 
 val listAppNavBar = listOf(

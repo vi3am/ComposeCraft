@@ -12,6 +12,7 @@ import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
 import com.example.composecraft.appViewModel.AppViewModel
+import com.example.composecraft.feature.notification.NotificationPermissionScreen
 import com.example.composecraft.screens.itemscreens.AboutScreen
 import com.example.composecraft.screens.HomeScreen
 import com.example.composecraft.screens.NotificationScreen
@@ -40,13 +41,7 @@ fun AppNav(viewModel: AppViewModel) {
                             }
                         )
                     }
-                    entry<AppRoute.About> {
-                        AboutScreen(
-                            onBack = {
-                                backStack.removeLastOrNull()
-                            }
-                        )
-                    }
+
                     entry<AppRoute.Notification> {
                         NotificationScreen(
                             onNavigate = { route ->
@@ -58,6 +53,20 @@ fun AppNav(viewModel: AppViewModel) {
                         SettingScreen(
                             onNavigate = {route ->
                                 backStack.add(route)
+                            }
+                        )
+                    }
+                    entry<AppRoute.About> {
+                        AboutScreen(
+                            onBack = {
+                                backStack.removeLastOrNull()
+                            }
+                        )
+                    }
+                    entry<AppRoute.NotificationPermissionScreen> {
+                        NotificationPermissionScreen(
+                            onBack = {
+                                backStack.removeLastOrNull()
                             }
                         )
                     }

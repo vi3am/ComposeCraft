@@ -17,4 +17,5 @@ sealed interface AppRoute : NavKey {
     @Serializable
     data object Setting : AppRoute, NavKey
 
+    data object NotificationPermissionScreen: AppRoute, NavKey
 }
