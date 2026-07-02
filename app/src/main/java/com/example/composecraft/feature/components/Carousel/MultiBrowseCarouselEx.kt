@@ -23,14 +23,14 @@ fun MultiBrowseCarouselEx(){
         itemSpacing = 8.dp,
 //        flingBehavior = TODO(),
     ){item ->
-//        CardsEx {
-//            Box(
-//                modifier = Modifier.fillMaxWidth(),
-//                contentAlignment = Alignment.Center,
-//            ){
-//                Text("Carouse ${item}")
-//            }
-//        }
+        CardsEx {
+            Box(
+                modifier = Modifier.fillMaxWidth(),
+                contentAlignment = Alignment.Center,
+            ){
+                Text("Carouse ${item}")
+            }
+        }
     }
 }
 

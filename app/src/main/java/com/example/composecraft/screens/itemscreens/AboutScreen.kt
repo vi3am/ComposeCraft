@@ -1,12 +1,17 @@
 package com.example.composecraft.screens.itemscreens
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
@@ -20,7 +25,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.composecraft.feature.components.BottomSheet
 import com.example.composecraft.feature.components.Chip.FilterChipComp
 
@@ -30,7 +37,7 @@ fun AboutScreen(
     onBack: () -> Unit
 ) {
     val sheetState = rememberModalBottomSheetState(false)
-    var showBottomSheet by remember { mutableStateOf(true) }
+    var showBottomSheet by remember { mutableStateOf(false) }
     Scaffold(
         topBar = {
             TopAppBar(
@@ -44,6 +51,21 @@ fun AboutScreen(
                     }
                 }
             )
+        },
+        floatingActionButton = {
+            FloatingActionButton(
+                onClick = {
+                    showBottomSheet = true
+                },
+                containerColor = Color.Black,
+                modifier = Modifier.size(56.dp)
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Add,
+                    contentDescription = "Add",
+                    tint = Color.White
+                )
+            }
         }
     ) { padding ->
         Column(
@@ -53,7 +75,7 @@ fun AboutScreen(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            FilterChipComp()
+//            FilterChipComp()
             BottomSheet(
                 showBottomSheet = showBottomSheet,
                 sheetState = sheetState,
@@ -66,7 +88,7 @@ fun AboutScreen(
 @OptIn(ExperimentalMaterial3Api::class)
 @Preview
 @Composable
-fun preCa(){
+fun preCa() {
     AboutScreen(
         onBack = {}
     )
