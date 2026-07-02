@@ -18,10 +18,6 @@
         <option name="selectionMode" value="DROPDOWN" />
         <DialogSelection />
       </SelectionState>
-      <SelectionState runConfigName="previewFilterChip">
-        <option name="selectionMode" value="DROPDOWN" />
-        <DialogSelection />
-      </SelectionState>
       <SelectionState runConfigName="PreviewHorizontalMultiBrowseCarouselEx">
         <option name="selectionMode" value="DROPDOWN" />
         <DialogSelection />
@@ -35,6 +31,10 @@
         <DialogSelection />
       </SelectionState>
       <SelectionState runConfigName="PreviewNavigationBarEx">
+        <option name="selectionMode" value="DROPDOWN" />
+        <DialogSelection />
+      </SelectionState>
+      <SelectionState runConfigName="SegmentedButtonScreenPre">
         <option name="selectionMode" value="DROPDOWN" />
         <DialogSelection />
       </SelectionState>
